@@ -29,7 +29,7 @@ public class Food : MonoBehaviour
 
     private void OnMouseOver()
     {
-        transform.Find("FoodMesh").Rotate(Vector3.up, _rotationSpeed * Time.deltaTime);
+        transform.Find("FoodMesh").RotateAround(transform.position, Vector3.up, _rotationSpeed * Time.deltaTime);
     }
 
     void OnMouseExit()

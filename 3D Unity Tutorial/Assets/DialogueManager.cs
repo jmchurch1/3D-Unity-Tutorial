@@ -9,6 +9,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Dialogue _currentDialogue;
 
     private int _currentSlideIndex = 0;
+
+    [SerializeField] private RuntimeData _runtimeData;
     
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,7 @@ public class DialogueManager : MonoBehaviour
             else
             {
                 gameObject.GetComponent<Canvas>().enabled = false;
+                _runtimeData.CurrentGameplayState = GameplayState.FreeWalk;
             }
         }
     }
