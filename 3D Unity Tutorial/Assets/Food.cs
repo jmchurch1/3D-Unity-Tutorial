@@ -7,7 +7,7 @@ public class Food : MonoBehaviour
 {
     private float _rotationSpeed = 180f;
 
-    public static string CurrentFoodMousedOver;
+    [SerializeField] private RuntimeData _runtimeData;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +24,7 @@ public class Food : MonoBehaviour
     {
         Debug.Log("Mouse Entered");
         transform.Find("Spot Light").gameObject.SetActive(true);
-        CurrentFoodMousedOver = name;
+       // _runtimeData.CurrentFood = name;
     }
 
     private void OnMouseOver()
@@ -36,6 +36,6 @@ public class Food : MonoBehaviour
     {
         Debug.Log("Mouse Exit");
         transform.Find("Spot Light").gameObject.SetActive(false);
-        CurrentFoodMousedOver = "";
+        // CurrentFoodMousedOver = "";
     }
 }

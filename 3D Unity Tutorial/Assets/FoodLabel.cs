@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class FoodLabel : MonoBehaviour
 {
+    [SerializeField] private RuntimeData _runtimeData;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +15,6 @@ public class FoodLabel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<TextMeshProUGUI>().text = Food.CurrentFoodMousedOver;
+       // GetComponent<TextMeshProUGUI>().text = _runtimeData.Current;
     }
 }
