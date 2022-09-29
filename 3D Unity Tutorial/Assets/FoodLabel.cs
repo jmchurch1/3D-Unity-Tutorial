@@ -14,7 +14,7 @@ public class FoodLabel : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-       // GetComponent<TextMeshProUGUI>().text = _runtimeData.Current;
+    { 
+        GetComponent<TextMeshProUGUI>().text = _runtimeData.CurrentFoodMousedOver;
     }
 }

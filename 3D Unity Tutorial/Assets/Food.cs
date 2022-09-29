@@ -24,7 +24,7 @@ public class Food : MonoBehaviour
     {
         Debug.Log("Mouse Entered");
         transform.Find("Spot Light").gameObject.SetActive(true);
-       // _runtimeData.CurrentFood = name;
+       _runtimeData.CurrentFoodMousedOver = name;
     }
 
     private void OnMouseOver()
@@ -36,6 +36,6 @@ public class Food : MonoBehaviour
     {
         Debug.Log("Mouse Exit");
         transform.Find("Spot Light").gameObject.SetActive(false);
-        // CurrentFoodMousedOver = "";
+        _runtimeData.CurrentFoodMousedOver = "";
     }
 }
