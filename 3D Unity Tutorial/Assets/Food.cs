@@ -7,6 +7,7 @@ public class Food : MonoBehaviour
 {
     private float _rotationSpeed = 180f;
 
+    [SerializeField] private GameObject _parentQuiz;
     [SerializeField] private RuntimeData _runtimeData;
     // Start is called before the first frame update
     void Start()
@@ -37,5 +38,14 @@ public class Food : MonoBehaviour
         Debug.Log("Mouse Exit");
         transform.Find("Spot Light").gameObject.SetActive(false);
         _runtimeData.CurrentFoodMousedOver = "";
+    }
+
+    private void OnMouseDown()
+    {
+        if (_runtimeData.CurrentGameplayState == GameplayState.FreeWalk)
+        {
+            StartCoroutine(_parentQuiz.GetComponent<FoodQuiz>().FoodSelected(gameObject));
+            _runtimeData.CurrentFoodMousedOver = "";
+        }
     }
 }
