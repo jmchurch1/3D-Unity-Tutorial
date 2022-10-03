@@ -13,6 +13,10 @@ public class Player : MonoBehaviour
 
     [SerializeField] private Camera _cam;
 
+    [SerializeField] private GameObject _tomato;
+
+    [SerializeField] private float _throwStrength = 500;
+
     private float _currentTilt = 0f;
     // Start is called before the first frame update
     void Start()
@@ -25,7 +29,10 @@ public class Player : MonoBehaviour
     {   
         Aim();
         if (_runtimeData.CurrentGameplayState == GameplayState.FreeWalk)
+        {
             Movement();
+            ThrowTomato();
+        }
     }
 
     void Aim()
@@ -49,5 +56,13 @@ public class Player : MonoBehaviour
         Vector3 movementVector = sidewaysVector + forwardVector;
 
         GetComponent<CharacterController>().Move(movementVector * _moveSpeed * Time.deltaTime);
+    }
+
+    void ThrowTomato()
+    {
+        if (Input.GetMouseButtonDown(1)){
+            GameObject currTomato = Instantiate(_tomato, transform.position, Quaternion.identity);
+            currTomato.GetComponent<Rigidbody>().AddForce((transform.forward + _cam.transform.forward + new Vector3(0,.3f,0)) * _throwStrength);
+        }
     }
 }
