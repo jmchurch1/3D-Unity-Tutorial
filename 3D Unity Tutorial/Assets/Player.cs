@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] private float _throwStrength = 500;
 
+    private bool _canThrow = false;
     private float _currentTilt = 0f;
     // Start is called before the first frame update
     void Start()
@@ -60,9 +61,14 @@ public class Player : MonoBehaviour
 
     void ThrowTomato()
     {
-        if (Input.GetMouseButtonDown(1)){
+        if (Input.GetMouseButtonDown(1) && _canThrow){
             GameObject currTomato = Instantiate(_tomato, transform.position, Quaternion.identity);
             currTomato.GetComponent<Rigidbody>().AddForce((transform.forward + _cam.transform.forward + new Vector3(0,.3f,0)) * _throwStrength);
         }
+    }
+
+    public void GiveTomato()
+    {
+        _canThrow = true;
     }
 }
