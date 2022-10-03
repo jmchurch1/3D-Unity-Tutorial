@@ -20,7 +20,8 @@ public class FoodQuiz : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        GameEvents.InvokeDialogInitiated(_dialogue);
+        if (other.CompareTag("Player"))
+            GameEvents.InvokeDialogInitiated(_dialogue);
     }
 
     public IEnumerator FoodSelected(GameObject food)
