@@ -11,6 +11,7 @@ public class Initializer : MonoBehaviour
     private void Awake()
     {
         _runtimeData.CurrentFoodMousedOver = "";
+        _runtimeData.CurrentQuizScore = 0;
         _runtimeData.CurrentGameplayState = GameplayState.inDialog;
     }
 

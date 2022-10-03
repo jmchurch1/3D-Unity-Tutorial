@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class FoodLabel : MonoBehaviour
+public class ScoreLabel : MonoBehaviour
 {
     [SerializeField] private RuntimeData _runtimeData;
 
     // Update is called once per frame
     void Update()
     { 
-        GetComponent<TextMeshProUGUI>().text = _runtimeData.CurrentFoodMousedOver;
+        GetComponent<TextMeshProUGUI>().text = "Tests Finished: " + _runtimeData.CurrentQuizScore;
     }
 }

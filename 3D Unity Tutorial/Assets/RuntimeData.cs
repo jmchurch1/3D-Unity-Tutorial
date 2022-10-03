@@ -7,5 +7,7 @@ public class RuntimeData : ScriptableObject
 {
     public string CurrentFoodMousedOver;
 
+    public int CurrentQuizScore;
+
     public GameplayState CurrentGameplayState;
 }
