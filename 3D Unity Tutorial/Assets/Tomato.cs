@@ -14,14 +14,16 @@ public class Tomato : MonoBehaviour
         _originalLocation = transform.position;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (!other.CompareTag("Player"))
+        if (!collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Tomato Died");
             SoundManager.soundManagerInstance.PlaySplat();
             Vector3 direction = (transform.position - _originalLocation).normalized;
-            Instantiate(_splatDecal, transform.position + 1.05f*direction, Quaternion.Euler(direction));
+            Vector3 collisionNormal = collision.contacts[0].normal;
+            Debug.Log(collisionNormal);
+            Instantiate(_splatDecal, transform.position, Quaternion.Euler(direction));
             Destroy(gameObject);
         }
     }
