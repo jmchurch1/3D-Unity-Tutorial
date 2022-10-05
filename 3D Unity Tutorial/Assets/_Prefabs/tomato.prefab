@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 202292366185970617}
   - component: {fileID: 3254547934460808631}
   - component: {fileID: 8318507169470076971}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: tomato
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2444068987626696928}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1

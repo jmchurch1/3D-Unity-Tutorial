@@ -12,6 +12,7 @@ public class Tomato : MonoBehaviour
     private void Start()
     {
         _originalLocation = transform.position;
+        StartCoroutine(nameof(ToggleTrigger));
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -20,11 +21,17 @@ public class Tomato : MonoBehaviour
         {
             Debug.Log("Tomato Died");
             SoundManager.soundManagerInstance.PlaySplat();
-            Vector3 direction = (transform.position - _originalLocation).normalized;
             Vector3 collisionNormal = collision.contacts[0].normal;
-            Debug.Log(collisionNormal);
-            Instantiate(_splatDecal, transform.position, Quaternion.Euler(direction));
+            Quaternion quatNormal = Quaternion.LookRotation(collisionNormal, Vector3.up);
+            quatNormal *= Quaternion.Euler(90, 0, 0);
+            Instantiate(_splatDecal, transform.position, quatNormal);
             Destroy(gameObject);
         }
+    }
+    
+    IEnumerator ToggleTrigger()
+    {
+        yield return new WaitForSeconds(.03f);
+        gameObject.GetComponent<MeshCollider>().isTrigger = false;
     }
 }
